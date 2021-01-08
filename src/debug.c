@@ -50,12 +50,14 @@ dissasemble_instruction(Chunk *chunk, int offset)
 
   switch (instruction)
   {
-  case OP_RETURN:
-    return simple_instruction("RETURN", offset);
-  case OP_CONSTANT:
-    return constant_instruction("CONSTANT", chunk, offset);
-  default:
-    printf("Unknown op %d", instruction);
-    return offset + 1;
+    case OP_CONSTANT:
+      return constant_instruction("CONSTANT", chunk, offset);
+    case OP_NEGATE:
+      return simple_instruction("NEGATE", offset);
+    case OP_RETURN:
+      return simple_instruction("RETURN", offset);
+    default:
+      printf("Unknown op %d", instruction);
+      return offset + 1;
   }
 }
