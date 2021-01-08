@@ -4,20 +4,27 @@
 A scripting language for agent-based modelling of economic scenarios
 
 ```
-include sim
+include countries
+include currency
 
-agent Actor {
-  let balance = 10000
-  let age = 35
+# Notice lexical macros
+# ... also mathematical notation
+macro convert(a, b, x)
+{
+  a/b x
 }
 
-function Actor.step(state) {
-  foreach state.agents {
-    ...
+# Swedish time
+gdp: man = denmark.GDP
+
+fun diff-balance(gdp)
+{
+  open sweden {
+    return (gdp + M) - (C + I + X)
   }
 }
 
-implement Agent -> sim.current() {
-  
-}
+plot(convert(SEK, DKK, diff-balance(gdp)))
+
+free(gdp)
 ```
