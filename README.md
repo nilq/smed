@@ -1,30 +1,24 @@
 # Smed
 ## Agent/Adam.
 
-A scripting language for agent-based modelling of economic scenarios
+A scripting language for mathematical modelling of macroeconomic scenarios.
 
-```
-include countries
-include currency
+```kt
+class Person: sim.Agent {
+  fn new() {
+    super()
 
-# Notice lexical macros
-# ... also mathematical notation
-macro convert(a, b, x)
-{
-  a/b x
-}
-
-# Swedish time
-gdp: man = denmark.GDP
-
-fun diff-balance(gdp)
-{
-  open sweden {
-    return (gdp + M) - (C + I + X)
+    self.income = 3 #idk
   }
 }
 
-plot(convert(SEK, DKK, diff-balance(gdp)))
+repeat {
+  if not sim.run() {
+    break
+  }
+}
 
-free(gdp)
+plot(sim.history)
+
+print sim.balance
 ```
