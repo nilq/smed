@@ -1,24 +1,25 @@
 # Smed
 ## Agent/Adam.
 
-A scripting language for agent-based modelling of economic scenarios
+A scripting language for mathematical modelling of macroeconomic scenarios.
 
-```
-include sim
+```kt
+class Person: sim.Agent {
+  fn new() {
+    super()
 
-class Actor {
-  let balance = 10000
-  let age = 35
-}
-
-fn Actor.step(state) {
-  foreach state.agents {
-    ...
+    self.income = 3 #idk
   }
 }
 
-implement Agent -> sim.current() {
-  
+repeat {
+  if not sim.run() {
+    break
+  }
 }
+
+plot(sim.history)
+
+print sim.balance
 ```
 x
