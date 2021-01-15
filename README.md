@@ -6,12 +6,12 @@ A scripting language for agent-based modelling of economic scenarios
 ```
 include sim
 
-agent Actor {
+class Actor {
   let balance = 10000
   let age = 35
 }
 
-function Actor.step(state) {
+fn Actor.step(state) {
   foreach state.agents {
     ...
   }
@@ -21,3 +21,4 @@ implement Agent -> sim.current() {
   
 }
 ```
+x

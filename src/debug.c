@@ -52,6 +52,28 @@ dissasemble_instruction(Chunk *chunk, int offset)
   {
     case OP_CONSTANT:
       return constant_instruction("CONSTANT", chunk, offset);
+    case OP_NIL:
+      return simple_instruction("NIL", offset);
+    case OP_TRUE:
+      return simple_instruction("TRUE", offset);
+    case OP_FALSE:
+      return simple_instruction("FALSE", offset);
+    case OP_EQUAL:
+      return simple_instruction("OP_EQUAL", offset);
+    case OP_GREATER:
+      return simple_instruction("OP_GREATER", offset);
+    case OP_LESS:
+      return simple_instruction("OP_LESS", offset);
+    case OP_ADD:
+      return simple_instruction("ADD", offset);
+    case OP_SUB:
+      return simple_instruction("SUB", offset);
+    case OP_MUL:
+      return simple_instruction("MUL", offset);
+    case OP_DIV:
+      return simple_instruction("DIV", offset);
+    case OP_NOT:
+      return simple_instruction("NOT", offset);
     case OP_NEGATE:
       return simple_instruction("NEGATE", offset);
     case OP_RETURN:
