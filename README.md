@@ -1,8 +1,3 @@
 # Smed
-## Agent/Adam.
 
-A scripting language for mathematical modelling of macroeconomic scenarios.
-
-```moon
-print "bob"
-```
+A scripting language with large-range data types intended for agent-based modeling.
